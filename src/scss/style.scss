@@ -1,0 +1,11 @@
+// Global SCSS imports
+@import "./vars";
+@import "./global";
+@import "./fonts";
+@import "./functions";
+@import "./mixins";
+
+// Sections SCSS imports
+@import "./header";
+@import "./main";
+@import "./footer";

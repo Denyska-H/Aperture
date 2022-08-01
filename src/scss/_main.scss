@@ -1,0 +1,483 @@
+// Home
+.home {
+	position: relative;
+	&__bg {
+		min-height: 100vh;
+		width: 100%;
+		background: linear-gradient(360deg, #000000 18.78%, rgba(0, 0, 0, 0) 98.53%),
+			url("../img/bg.jpg") center/cover no-repeat;
+	}
+
+	&__text {
+		position: absolute;
+		max-width: 580px;
+		top: 50%;
+		left: 50%;
+		margin-right: -50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+
+	&__uptitle {
+		font-size: calc(11px + 3 * (100vw / 1440));
+		line-height: 1.4;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: $grayColor;
+	}
+
+	&__title {
+		font-size: calc(25px + 29 * (100vw / 1440));
+		line-height: 1.09;
+		color: #fff;
+		margin-bottom: 0.3em;
+	}
+
+	&__subtitle {
+		font-size: 14px;
+		line-height: 1.4;
+		color: $grayColor;
+	}
+
+	@media (max-width: $breakpoint768) {
+		&__text {
+			top: 40%;
+		}
+
+		&__uptitle {
+			@include adaptive-font(25, 13);
+		}
+
+		&__title {
+			@include adaptive-font(65, 33);
+		}
+
+		&__subtitle {
+			display: none;
+		}
+	}
+
+	@media (max-width: $breakpoint425) {
+		.general {
+			&__bottom {
+				display: none;
+			}
+		}
+	}
+}
+//*************
+
+// General icos
+.general {
+	&__bottom {
+		display: flex;
+		position: absolute;
+		column-gap: 15px;
+		top: 80%;
+		left: 5%;
+		span {
+			@include adaptive-font(12, 10);
+			color: #fff;
+		}
+	}
+
+	&__item {
+		display: flex;
+		gap: 8px;
+	}
+}
+//*************
+
+// General title
+.section {
+	margin-top: 113px;
+	&__header {
+		text-align: center;
+	}
+
+	&__title {
+		@include adaptive-font(40, 30);
+		line-height: 1.05;
+		color: #fff;
+		margin-bottom: 15px;
+	}
+
+	&__suptitle {
+		@include adaptive-font(23, 16);
+		line-height: 1.3;
+		color: $grayColor;
+		margin-bottom: 42px;
+	}
+
+	&_new {
+		.container {
+			max-width: rem(650);
+		}
+		.section {
+			&__suptitle {
+				margin-bottom: 22px;
+			}
+		}
+	}
+}
+//*************
+
+// What we do
+.do {
+	margin-bottom: 100px;
+
+	&__row {
+		display: flex;
+		margin: -8px -8px;
+		flex-wrap: wrap;
+	}
+
+	&__column {
+		flex: 0 1 50%;
+		padding: 8px 8px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__img {
+		position: relative;
+		cursor: pointer;
+		padding-bottom: 100%;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		&:first-child {
+			margin-bottom: 16px;
+		}
+		&:hover {
+			.do__bottom {
+				opacity: 1;
+			}
+		}
+	}
+
+	&__bottom {
+		transition: all 0.5s ease;
+		opacity: 0;
+		position: absolute;
+		max-width: 514px;
+		top: 60%;
+		line-height: 20px;
+		margin: 0 10% 20% 8%;
+		height: 5%;
+	}
+
+	&__title {
+		@include adaptive-font(14, 12);
+		margin-bottom: 5px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	&__subtitle {
+		@include adaptive-font(14, 9);
+		margin-bottom: 15px;
+		line-height: 20px;
+		color: $grayColor;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 35%;
+		height: 150%;
+		border-radius: 13px;
+		background: #fff;
+		a {
+			margin-right: 12px;
+			text-decoration: none;
+			@include adaptive-font(15, 10);
+			letter-spacing: 0.4px;
+			color: #000;
+		}
+		&::before {
+			content: "";
+			margin-left: 12px;
+			width: 20%;
+			height: 62%;
+			background: #000;
+			border-radius: 13px;
+		}
+	}
+
+	@media (max-width: $breakpoint992) {
+		&__column {
+			flex: 0 1 100%;
+		}
+
+		&__title {
+			@include adaptive-font(25, 12);
+		}
+
+		&__subtitle {
+			@include adaptive-font(18, 9);
+		}
+
+		&__button {
+			width: 50%;
+			height: 150%;
+			display: flex;
+			justify-content: space-between;
+			a {
+				margin-right: 28%;
+				@include adaptive-font(25, 8);
+			}
+
+			&::before {
+				margin-left: 5%;
+				width: 15%;
+				height: 62%;
+			}
+		}
+	}
+
+	@media (max-width: 551px) {
+		&__bottom {
+			top: 50%;
+		}
+		&__subtitle {
+			line-height: 15px;
+		}
+	}
+
+	@media (max-width: 375px) {
+		&__bottom {
+			top: 38%;
+		}
+	}
+}
+//*************
+
+// General photos
+.photo {
+	&__img {
+		position: relative;
+		width: 100%;
+		height: 600px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__text {
+		position: absolute;
+		top: 45%;
+		left: 72%;
+		max-width: 300px;
+		margin-right: 20px;
+	}
+
+	&__title {
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	&__subtitle {
+		font-size: 14px;
+		line-height: 20px;
+		color: $grayColor;
+	}
+
+	@media (max-width: $breakpoint768) {
+		&__text {
+			left: 55%;
+		}
+		&__title {
+			@include adaptive-font(14, 11);
+		}
+
+		&__subtitle {
+			@include adaptive-font(14, 11);
+		}
+	}
+
+	@media (max-width: $breakpoint425) {
+		&__text {
+			left: 35%;
+		}
+		.general {
+			&__bottom {
+				top: 85%;
+			}
+		}
+	}
+}
+//*************
+
+// Tools
+.tools {
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__column {
+		flex: 0 1 50%;
+	}
+
+	&__text {
+		margin: prc(120, 540) prc(100, 720);
+	}
+
+	&__img {
+		position: relative;
+		height: 100%;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__uptitle {
+		margin-bottom: 0.4em;
+		font-size: 14px;
+		line-height: 1.4;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: $grayColor;
+	}
+
+	&__title {
+		margin-bottom: 0.4em;
+		font-size: 28px;
+		line-height: 1.14;
+		color: #fff;
+	}
+
+	&__subtitle {
+		font-size: 14px;
+		line-height: 1.4;
+		color: #fff;
+		margin-bottom: 1em;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 155px;
+		height: 42px;
+		border-radius: 13px;
+		background: #fff;
+		a {
+			text-decoration: none;
+			font-size: 15px;
+			letter-spacing: 0.4px;
+			color: #000;
+		}
+		&::before {
+			content: "";
+			width: rem(32);
+			height: rem(32);
+			background: #000;
+			border-radius: 13px;
+			margin: 0.4em 0.7em 0.4em 0;
+		}
+	}
+
+	@media (max-width: $breakpoint992) {
+		&__column {
+			flex: 0 1 100%;
+		}
+
+		&__title {
+			@include adaptive-font(28, 23);
+		}
+
+		&__subtitle {
+			text-align: justify;
+			@include adaptive-font(14, 11);
+		}
+	}
+}
+//*************
+
+// Clients
+.clients {
+	&__items {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 82px 0 120px 0;
+		flex-wrap: wrap;
+	}
+
+	&__column {
+		padding: 0 30px;
+		flex: 0 1 20%;
+	}
+
+	&__item {
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	@media (max-width: $breakpoint768) {
+		&__column {
+			flex: 0 1 50%;
+			padding: 0 35px 55px 35px;
+			&:last-child {
+				padding-bottom: 0px;
+			}
+		}
+	}
+
+	@media (max-width: $breakpoint425) {
+		&__column {
+			flex: 0 1 100%;
+			padding: 0 55px 90px 55px;
+		}
+	}
+}
+//*************
+
+// Help
+.help {
+	margin-bottom: 100px;
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto;
+		width: 155px;
+		height: 42px;
+		border-radius: 13px;
+		background: #fff;
+		a {
+			text-decoration: none;
+			font-size: rem(15);
+			letter-spacing: 0.4px;
+			color: #000;
+		}
+		&::before {
+			content: "";
+			width: rem(32);
+			height: rem(32);
+			background: #000;
+			border-radius: 13px;
+			margin: 0.4em 0.7em 0.4em 0;
+		}
+	}
+}
+//*************

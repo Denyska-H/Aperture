@@ -1,0 +1,102 @@
+.header {
+	&__row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 1.875em 0px;
+		position: relative;
+	}
+
+	&__logo {
+		margin-right: prc(340, 1200);
+	}
+
+	&__menu {
+		display: flex;
+		align-items: center;
+		column-gap: 2em;
+		text-align: center;
+	}
+
+	&__link {
+		text-decoration: none;
+		font-size: rem(15);
+		line-height: 1.33;
+		color: #fff;
+		&:last-child {
+			display: flex;
+			font-size: rem(16);
+			border-radius: 15px;
+			align-items: center;
+			justify-content: center;
+			padding: 13px 20px;
+			background-color: #fff;
+			color: #000;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: $breakpoint1131) {
+		&__logo {
+			margin-right: prc(180, 1200);
+		}
+	}
+
+	@media (max-width: $breakpoint992) {
+		&__logo {
+			margin-right: prc(110, 1200);
+			display: flex;
+		}
+
+		&__menu {
+			column-gap: 1.5em;
+		}
+
+		&__link {
+			font-size: rem(14);
+			&:last-child {
+				font-size: rem(15);
+			}
+		}
+	}
+
+	@media (max-width: $burgerBreakpoint) {
+		&__row {
+			justify-content: flex-start;
+		}
+
+		&__menu {
+			display: none;
+		}
+
+		&__burger {
+			position: absolute;
+			top: -10%;
+			right: 0;
+			width: 40px;
+			height: 30px;
+		}
+
+		&__burger::before,
+		&__burger::after {
+			content: "";
+			background-color: $burgerActiveColor;
+			position: absolute;
+			width: 100%;
+			height: 3px;
+		}
+		&__burger span {
+			position: absolute;
+			background-color: $burgerActiveColor;
+			width: 100%;
+			height: 3px;
+			top: 15px;
+		}
+		&__burger::before {
+			top: 3px;
+		}
+		&__burger::after {
+			bottom: 0;
+		}
+	}
+}
